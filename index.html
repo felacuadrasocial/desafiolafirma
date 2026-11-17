@@ -155,36 +155,33 @@
     opacity: 0.92;
   }
 
-  /* Botón principal */
-  .btn {
-    display: inline-block;
-    background-color: var(--magenta);
-    color: var(--crema);
-    text-decoration: none;
-    padding: 18px 36px;
-    border-radius: 999px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    border: none;
-    cursor: pointer;
+  /* Botón principal (estilizado con tu branding + compatibilidad Hotmart) */
+  .btn,
+  .hotmart-fb.btn {
+    display: inline-block !important;
+    background-color: var(--magenta) !important;
+    background-image: none !important;
+    color: var(--crema) !important;
+    text-decoration: none !important;
+    padding: 18px 36px !important;
+    border-radius: 999px !important;
+    font-family: var(--sans) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    height: auto !important;
+    line-height: 1.2 !important;
   }
 
-  .btn:hover {
-    background-color: var(--marron);
+  .btn:hover,
+  .hotmart-fb.btn:hover {
+    background-color: var(--marron) !important;
     transform: translateY(-2px);
-  }
-
-  .btn-oliva {
-    background-color: var(--oliva);
-    color: var(--marron);
-  }
-
-  .btn-oliva:hover {
-    background-color: var(--marron);
-    color: var(--crema);
   }
 
   /* HERO */
@@ -528,7 +525,7 @@
           Una experiencia integral —más allá de lo estético y de las redes sociales— para poner en marcha tu marca, construir tus activos propios y activar relaciones y propuestas reales para tu negocio.
         </p>
         <div class="hero-actions">
-          <a href="#inscripcion" class="btn">Quiero sumarme al desafío</a>
+          <a onclick="return false;" href="https://pay.hotmart.com/K108524188D?checkoutMode=2" class="hotmart-fb hotmart__button-checkout btn">Quiero sumarme al desafío</a>
           <span class="hero-meta">Incluye 7 consignas diarias + Call grupal en vivo de cierre</span>
         </div>
       </div>
@@ -693,7 +690,7 @@
           </p>
         </div>
 
-        <a href="https://pay.hotmart.com/K108524188D?bid=1794859071010" target="_blank" rel="noopener" class="btn" style="width: 100%; max-width: 420px; font-size: 16px; padding: 20px 36px;">
+        <a onclick="return false;" href="https://pay.hotmart.com/K108524188D?checkoutMode=2" class="hotmart-fb hotmart__button-checkout btn" style="width: 100%; max-width: 420px; font-size: 16px !important; padding: 20px 36px !important;">
           Reservar mi lugar ahora
         </a>
         <p style="font-size: 13px; margin-top: 16px; opacity: 0.7;">
@@ -744,7 +741,7 @@
         </details>
         <details>
           <summary>¿Cómo aplico el cupón AMOR del 20% de descuento?</summary>
-          <p>Al hacer clic en el botón de inscripción irás al checkout seguro de Hotmart. Allí vas a ver la opción "¿Tenés un cupón de descuento?", escribís <strong>AMOR</strong> y el 20% se descuenta automáticamente antes de finalizar el pago (disponible hasta el 17/11 a las 23:59 hs).</p>
+          <p>Al hacer clic en el botón de inscripción se abrirá el checkout seguro de Hotmart aquí mismo. Allí vas a ver la opción "¿Tenés un cupón de descuento?", escribís <strong>AMOR</strong> y el 20% se descuenta automáticamente antes de finalizar el pago (disponible hasta el 17/11 a las 23:59 hs).</p>
         </details>
         <details>
           <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
@@ -760,7 +757,20 @@
     <p style="margin-top: 6px;">felacuadra.com · Todos los derechos reservados</p>
   </footer>
 
-  <script>
+  <!-- Script del widget de checkout de Hotmart -->
+  <script type="text/javascript">
+    function importHotmart() {
+      var imported = document.createElement('script');
+      imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+      document.head.appendChild(imported);
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+      document.head.appendChild(link);
+    }
+    importHotmart();
+
     function copiarCupon(btn) {
       navigator.clipboard.writeText('AMOR').then(() => {
         const original = btn.textContent;
