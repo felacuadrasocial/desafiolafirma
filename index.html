@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA FIRMA · Desafío de 7 días | Fe Lacuadra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --magenta: #BA4D99;
+    --rosa-claro: #FFE4F7;
+    --crema: #FAF5ED;
+    --marron: #54301C;
+    --azul: #88ADC8;
+    --oliva: #B5B954;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--crema);
+    color: var(--marron);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Barra superior de lanzamiento */
+  .top-banner {
+    background-color: var(--marron);
+    color: var(--crema);
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .top-banner strong {
+    color: var(--rosa-claro);
+    letter-spacing: 1px;
+  }
+
+  .copy-badge {
+    display: inline-block;
+    background-color: var(--magenta);
+    color: var(--crema);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .copy-badge:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+
+  /* Navegación minimalista */
+  header.nav {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--marron);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+
+  .logo em {
+    color: var(--magenta);
+    font-style: italic;
+  }
+
+  .nav-date {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--magenta);
+  }
+
+  /* Contenedores generales */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .kicker {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: normal;
+    line-height: 1.06;
+  }
+
+  h1 {
+    font-size: clamp(54px, 7vw, 92px);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: clamp(38px, 4.8vw, 60px);
+    margin-bottom: 24px;
+  }
+
+  h1 em, h2 em, h3 em {
+    color: var(--magenta);
+    font-style: italic;
+  }
+
+  p.lead {
+    font-size: clamp(18px, 1.5vw, 21px);
+    line-height: 1.6;
+    opacity: 0.92;
+  }
+
+  /* Botón principal */
+  .btn {
+    display: inline-block;
+    background-color: var(--magenta);
+    color: var(--crema);
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: var(--marron);
+    transform: translateY(-2px);
+  }
+
+  .btn-oliva {
+    background-color: var(--oliva);
+    color: var(--marron);
+  }
+
+  .btn-oliva:hover {
+    background-color: var(--marron);
+    color: var(--crema);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 40px 0 96px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .hero-actions {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-meta {
+    font-size: 14px;
+    color: var(--marron);
+    opacity: 0.8;
+  }
+
+  .hero-photo {
+    position: relative;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    display: block;
+    margin-left: auto;
+    box-shadow: 0 20px 50px rgba(84, 48, 28, 0.12);
+  }
+
+  /* Sección Editorial / Manifiesto */
+  .bg-rosa {
+    background-color: var(--rosa-claro);
+  }
+
+  .bg-marron {
+    background-color: var(--marron);
+    color: var(--crema);
+  }
+
+  .bg-marron .kicker,
+  .bg-marron h2 em {
+    color: var(--rosa-claro);
+  }
+
+  .manifesto-box {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .manifesto-box p {
+    font-size: 20px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  /* Grid de 3 pilares */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(84, 48, 28, 0.12);
+    border-radius: 20px;
+    padding: 36px 30px;
+  }
+
+  .card.rosa { background-color: var(--rosa-claro); border: none; }
+  .card.azul { background-color: rgba(136, 173, 200, 0.25); border: none; }
+  .card.oliva { background-color: rgba(181, 185, 84, 0.25); border: none; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--magenta);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .card h3 {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  .card p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Recorrido de los 7 días */
+  .days-list {
+    margin-top: 40px;
+    border-top: 1px solid rgba(84, 48, 28, 0.15);
+  }
+
+  .day-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(84, 48, 28, 0.15);
+    align-items: baseline;
+  }
+
+  .day-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-style: italic;
+    color: var(--magenta);
+  }
+
+  .day-content h4 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 8px;
+  }
+
+  .day-content p {
+    font-size: 16px;
+    max-width: 720px;
+    opacity: 0.9;
+  }
+
+  /* Sección para quién es */
+  .two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .star-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .star-list li {
+    padding-left: 28px;
+    position: relative;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .star-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: var(--magenta);
+    font-size: 14px;
+    top: 2px;
+  }
+
+  /* Tarjeta de Inversión / Checkout */
+  .pricing-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    background-color: var(--crema);
+    color: var(--marron);
+    border-radius: 28px;
+    padding: 56px 48px;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .price-row {
+    margin: 28px 0;
+    padding: 24px;
+    background-color: var(--rosa-claro);
+    border-radius: 18px;
+  }
+
+  .price-main {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5vw, 58px);
+    color: var(--magenta);
+    display: block;
+    line-height: 1.1;
+  }
+
+  .price-sub {
+    font-size: 14px;
+    margin-top: 8px;
+    display: block;
+    opacity: 0.85;
+  }
+
+  .coupon-box {
+    border: 1.5px dashed var(--magenta);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    background-color: #FFFFFF;
+  }
+
+  .coupon-box p {
+    font-size: 15px;
+  }
+
+  /* Sobre Fe */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .about-grid img {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* FAQ */
+  .faq-list {
+    max-width: 820px;
+    margin: 32px auto 0;
+  }
+
+  details {
+    border-bottom: 1px solid rgba(84, 48, 28, 0.15);
+    padding: 22px 0;
+  }
+
+  summary {
+    font-family: var(--serif);
+    font-size: 26px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "+";
+    color: var(--magenta);
+    font-family: var(--sans);
+    font-size: 22px;
+  }
+
+  details[open] summary::after {
+    content: "−";
+  }
+
+  details p {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  footer {
+    text-align: center;
+    padding: 48px 24px;
+    font-size: 14px;
+    opacity: 0.75;
+    border-top: 1px solid rgba(84, 48, 28, 0.1);
+  }
+
+  @media (max-width: 860px) {
+    .hero, .two-cols, .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+    .hero-photo img {
+      margin: 0 auto;
+    }
+    .day-item {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .pricing-wrapper {
+      padding: 36px 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Barra superior de cupón -->
+  <div class="top-banner">
+    Beneficio lanzamiento: <strong>20% OFF</strong> con el cupón <strong>AMOR</strong> hasta el 17/11 a las 23:59 hs
+    <button class="copy-badge" onclick="copiarCupon(this)">Copiar cupón</button>
+  </div>
+
+  <!-- Header -->
+  <header class="nav">
+    <a href="#" class="logo">Fe <em>Lacuadra</em></a>
+    <span class="nav-date">Del 3 al 9 de Diciembre</span>
+  </header>
+
+  <!-- HERO -->
+  <div class="container">
+    <div class="hero">
+      <div>
+        <span class="kicker">Del 3 al 9 de Diciembre · Edición en vivo</span>
+        <h1><em>LA FIRMA</em></h1>
+        <span class="hero-subtitle">Desafío de 7 días para atraer oportunidades con tu marca personal</span>
+        <p class="lead">
+          Una experiencia integral —más allá de lo estético y de las redes sociales— para poner en marcha tu marca, construir tus activos propios y activar relaciones y propuestas reales para tu negocio.
+        </p>
+        <div class="hero-actions">
+          <a href="#inscripcion" class="btn">Quiero sumarme al desafío</a>
+          <span class="hero-meta">Incluye 7 consignas diarias + Call grupal en vivo de cierre</span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://masterclass.felacuadra.com/IMG_2136.jpeg" alt="Fe Lacuadra · LA FIRMA">
+      </div>
+    </div>
+  </div>
+
+  <!-- EL CONCEPTO / MANIFIESTO -->
+  <section class="bg-rosa">
+    <div class="container">
+      <div class="manifesto-box">
+        <span class="kicker">Por amor a tus creaciones</span>
+        <h2>Tener una marca linda con la puerta cerrada <em>no alcanza</em></h2>
+        <p>
+          Muchas emprendedoras multifacéticas viven atrapadas en el ciclo de publicar contenido suelto esperando que el algoritmo les traiga clientes. Cuando dejás de subir historias dos días, sentís que tu proyecto desaparece.
+        </p>
+        <p>
+          <strong>LA FIRMA</strong> nace para cambiar esa lógica. Una marca personal con dirección no depende de una sola plataforma: vive en cómo te presentás, en la claridad de tu mensaje, en los activos que respaldan tu autoridad y en las conversaciones comerciales que sabés abrir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOS 3 PILARES INTEGRALES -->
+  <section>
+    <div class="container">
+      <div style="max-width: 680px;">
+        <span class="kicker">Enfoque 360°</span>
+        <h2>Qué vamos a activar juntas en <em>estos 7 días</em></h2>
+        <p class="lead">Trabajamos tu marca como un ecosistema completo donde estrategia, narrativa, branding y acción comercial avanzan en la misma dirección.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card rosa">
+          <span class="card-tag">Eje 01 · Dirección</span>
+          <h3>Posicionamiento y mensaje claro</h3>
+          <p>Definí tu tesis diferencial y bajá en palabras simples qué hacés, por qué tu mirada es única y cómo presentar tu propuesta en cualquier espacio sin encasillarte.</p>
+        </div>
+        <div class="card azul">
+          <span class="card-tag" style="color: var(--marron);">Eje 02 · Estructura</span>
+          <h3>Branding y activos propios</h3>
+          <p>Construí un universo coherente (visual, verbal y documental) y creá piezas madre evergreen que respalden tu autoridad y trabajen por vos más allá del feed.</p>
+        </div>
+        <div class="card oliva">
+          <span class="card-tag" style="color: var(--marron);">Eje 03 · Movimiento</span>
+          <h3>Acción comercial y relaciones</h3>
+          <p>Salí de la burbuja pasiva: activá conversaciones estratégicas, propuestas de colaboración y una narrativa de venta natural para recibir oportunidades reales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECORRIDO DÍA POR DÍA -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <span class="kicker">Hoja de ruta · Del 3 al 9 de diciembre</span>
+      <h2>El recorrido de <em>LA FIRMA</em></h2>
+
+      <div class="days-list">
+        <div class="day-item">
+          <span class="day-num">Día 01</span>
+          <div class="day-content">
+            <h4>Tu tesis y posicionamiento central</h4>
+            <p>Alineamos tu personalidad y filosofía con una propuesta clara para que puedas explicar el valor de tu trabajo en 30 segundos, en cualquier contexto.</p>
+          </div>
+        </div>
+        <div class="day-item">
+          <span class="day-num">Día 02</span>
+          <div class="day-content">
+            <h4>Arquitectura de oportunidades</h4>
+            <p>Mapeamos qué puertas querés abrir (clientes ideales, alianzas, medios, charlas o proyectos) y diseñamos el puente comercial que las habilita.</p>
+          </div>
+        </div>
+        <div class="day-item">
+          <span class="day-num">Día 03</span>
+          <div class="day-content">
+            <h4>Universo y branding con intención</h4>
+            <p>Bajamos tus códigos visuales y verbales para que cada punto de contacto —un mail, una propuesta, un dossier o un perfil— respire tu misma atmósfera.</p>
+          </div>
+        </div>
+        <div class="day-item">
+          <span class="day-num">Día 04</span>
+          <div class="day-content">
+            <h4>Activos de autoridad (más allá de las redes)</h4>
+            <p>Creamos una pieza madre estratégica (manifiesto, caso de estudio, dossier o recurso imán) que demuestre tu criterio y atraiga personas calificadas.</p>
+          </div>
+        </div>
+        <div class="day-item">
+          <span class="day-num">Día 05</span>
+          <div class="day-content">
+            <h4>Visibilidad estratégica y vínculos</h4>
+            <p>Acción concreta para salir a conversar con personas clave, proponer colaboraciones alineadas y posicionar tu nombre fuera de tu círculo habitual.</p>
+          </div>
+        </div>
+        <div class="day-item">
+          <span class="day-num">Día 06</span>
+          <div class="day-content">
+            <h4>Narrativa comercial sin fricción</h4>
+            <p>Cómo contar tus procesos, presentar tus servicios y hablar de tus ofertas desde el deseo y la seguridad, sin fórmulas invasivas.</p>
+          </div>
+        </div>
+        <div class="day-item">
+          <span class="day-num">Día 07</span>
+          <div class="day-content">
+            <h4>Tu hoja de ruta viva + Call grupal en vivo de cierre</h4>
+            <p>Ordenamos tu sistema sostenible para los próximos meses y nos encontramos en vivo para revisar avances, destrabar dudas y pulir tu plan juntas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN ES Y QUÉ INCLUYE -->
+  <section class="bg-rosa">
+    <div class="container">
+      <div class="two-cols">
+        <div>
+          <span class="kicker">¿Es para vos?</span>
+          <h2>Este desafío es tu lugar si...</h2>
+          <ul class="star-list">
+            <li>Sos una mujer emprendedora, creativa o profesional independiente con múltiples facetas y te cuesta integrar todo bajo una misma identidad.</li>
+            <li>Sentís que tenés mucho talento y experiencia, pero tu comunicación actual no refleja el verdadero nivel de tu trabajo.</li>
+            <li>Querés dejar de medir tu negocio por los likes y empezar a generar conversaciones, alianzas y ventas reales.</li>
+            <li>Necesitás estructura, consignas accionables y acompañamiento cercano para pasar de las ideas a la ejecución en 7 días.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 40px;">
+          <span class="kicker">Formato de la experiencia</span>
+          <h3>¿Cómo funciona por dentro?</h3>
+          <ul class="star-list">
+            <li><strong>Consignas diarias guiadas (3 al 9 de dic):</strong> Cada mañana recibís el audio y la guía práctica del día, pensada para aplicar en bloques cortos y concretos.</li>
+            <li><strong>Herramientas accionables:</strong> Plantillas de mensaje, estructuras de activos y ejercicios aplicables a todo tu ecosistema de marca.</li>
+            <li><strong>Espacio de intercambio:</strong> Comunidad privada durante los 7 días para compartir avances y recibir feedback.</li>
+            <li><strong>Call grupal en vivo de cierre:</strong> Encuentro en directo al finalizar el desafío para revisar tu hoja de ruta y resolver dudas en tiempo real.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIPCIÓN Y PRECIO -->
+  <section id="inscripcion" class="bg-marron">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <span class="kicker">Inscripciones abiertas · Cupos limitados</span>
+        <h2>Sumate a <em>LA FIRMA</em></h2>
+        <p style="font-size: 17px; max-width: 560px; margin: 0 auto;">
+          7 días de acción integral para poner en marcha tu marca personal y activar oportunidades reales + Call grupal de cierre en vivo.
+        </p>
+
+        <div class="price-row">
+          <span class="price-main">USD 24</span>
+          <span class="price-sub">Equivalente aproximado: <strong>$990 UYU</strong> · <strong>$25.000 ARS</strong> (Hotmart convierte automáticamente a tu moneda local)</span>
+        </div>
+
+        <div class="coupon-box">
+          <p>
+            🎁 <strong>Beneficio por lanzamiento:</strong> Ingresá el cupón <strong>AMOR</strong> antes de pagar para obtener un <strong>20% de descuento</strong>.
+            <br><span style="font-size: 13px; opacity: 0.75;">Válido hasta el martes 17/11 a las 23:59 hs.</span>
+          </p>
+        </div>
+
+        <a href="https://pay.hotmart.com/K108524188D?bid=1794859071010" target="_blank" rel="noopener" class="btn" style="width: 100%; max-width: 420px; font-size: 16px; padding: 20px 36px;">
+          Reservar mi lugar ahora
+        </a>
+        <p style="font-size: 13px; margin-top: 16px; opacity: 0.7;">
+          Acceso inmediato a la plataforma y bienvenida tras confirmar tu inscripción.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE FE -->
+  <section>
+    <div class="container">
+      <div class="about-grid">
+        <img src="https://masterclass.felacuadra.com/IMG_2136.jpeg" alt="Fe Lacuadra">
+        <div>
+          <span class="kicker">Quién te acompaña</span>
+          <h2>Hola, soy <em>Fe Lacuadra</em></h2>
+          <p class="lead" style="margin-bottom: 18px;">
+            Acompaño a mujeres emprendedoras y creativas a transformar ideas dispersas en marcas personales con dirección, identidad propia y propósito comercial.
+          </p>
+          <p style="font-size: 16px; margin-bottom: 18px; opacity: 0.9;">
+            Creo profundamente que una marca personal no se construye copiando fórmulas ni persiguiendo tendencias agotadoras, sino ordenando tu casa creativa desde adentro hacia afuera: personalidad, concepto y atmósfera al servicio de tus objetivos reales.
+          </p>
+          <p style="font-size: 16px; opacity: 0.9;">
+            En <strong>LA FIRMA</strong> reuní las acciones exactas que uso junto a mis clientas para que una marca deje de ser solo una cuenta bonita y se convierta en un imán de oportunidades.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="kicker">Dudas habituales</span>
+        <h2>Preguntas <em>frecuentes</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>¿Necesito tener muchos seguidores o estar activa en Instagram?</summary>
+          <p>No. Justamente el enfoque de LA FIRMA es integral y va más allá de Instagram o de cualquier algoritmo. Vas a trabajar tu posicionamiento, tu mensaje, tus activos propios y tus acciones comerciales para atraer oportunidades sin importar el tamaño de tu audiencia.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si algún día entre el 3 y el 9 de diciembre no puedo conectarme?</summary>
+          <p>Todas las consignas y guías diarias quedan grabadas y disponibles en la plataforma para que las hagas a tu ritmo dentro de tu semana. Además, la call grupal en vivo de cierre también quedará grabada por si no podés asistir en directo.</p>
+        </details>
+        <details>
+          <summary>¿Cómo aplico el cupón AMOR del 20% de descuento?</summary>
+          <p>Al hacer clic en el botón de inscripción irás al checkout seguro de Hotmart. Allí vas a ver la opción "¿Tenés un cupón de descuento?", escribís <strong>AMOR</strong> y el 20% se descuenta automáticamente antes de finalizar el pago (disponible hasta el 17/11 a las 23:59 hs).</p>
+        </details>
+        <details>
+          <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
+          <p>Sí. Hotmart detecta tu país automáticamente y te muestra el valor equivalente en tu moneda local (UYU, ARS, USD, EUR, etc.) permitiendo abonar con tarjeta de crédito, débito o medios locales habilitados.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Fe Lacuadra</strong> · LA FIRMA — Desafío de 7 días para atraer oportunidades con tu marca personal</p>
+    <p style="margin-top: 6px;">felacuadra.com · Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    function copiarCupon(btn) {
+      navigator.clipboard.writeText('AMOR').then(() => {
+        const original = btn.textContent;
+        btn.textContent = '¡Cupón AMOR copiado!';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>
