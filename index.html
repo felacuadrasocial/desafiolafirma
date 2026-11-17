@@ -155,32 +155,26 @@
     opacity: 0.92;
   }
 
-  /* Botón principal (estilizado con tu branding + compatibilidad Hotmart) */
-  .btn,
-  .hotmart-fb.btn {
-    display: inline-block !important;
-    background-color: var(--magenta) !important;
-    background-image: none !important;
-    color: var(--crema) !important;
-    text-decoration: none !important;
-    padding: 18px 36px !important;
-    border-radius: 999px !important;
-    font-family: var(--sans) !important;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-    transition: transform 0.2s ease, background-color 0.2s ease !important;
-    border: none !important;
-    cursor: pointer !important;
-    box-shadow: none !important;
-    height: auto !important;
-    line-height: 1.2 !important;
+  /* Botón principal */
+  .btn {
+    display: inline-block;
+    background-color: var(--magenta);
+    color: var(--crema);
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
 
-  .btn:hover,
-  .hotmart-fb.btn:hover {
-    background-color: var(--marron) !important;
+  .btn:hover {
+    background-color: var(--marron);
     transform: translateY(-2px);
   }
 
@@ -366,14 +360,14 @@
     top: 2px;
   }
 
-  /* Tarjeta de Inversión / Checkout */
+  /* Tarjeta de Inversión / Checkout incrustado */
   .pricing-wrapper {
-    max-width: 760px;
+    max-width: 820px;
     margin: 0 auto;
     background-color: var(--crema);
     color: var(--marron);
     border-radius: 28px;
-    padding: 56px 48px;
+    padding: 56px 40px;
     text-align: center;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
   }
@@ -404,12 +398,29 @@
     border: 1.5px dashed var(--magenta);
     border-radius: 14px;
     padding: 16px 20px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     background-color: #FFFFFF;
   }
 
   .coupon-box p {
     font-size: 15px;
+  }
+
+  /* Contenedor del iframe de Hotmart */
+  .hotmart-embed-box {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(84, 48, 28, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .hotmart-embed-box iframe {
+    width: 100%;
+    height: 760px;
+    border: none;
+    display: block;
   }
 
   /* Sobre Fe */
@@ -495,7 +506,10 @@
       gap: 6px;
     }
     .pricing-wrapper {
-      padding: 36px 24px;
+      padding: 36px 20px;
+    }
+    .hotmart-embed-box iframe {
+      height: 860px;
     }
   }
 </style>
@@ -525,7 +539,7 @@
           Una experiencia integral —más allá de lo estético y de las redes sociales— para poner en marcha tu marca, construir tus activos propios y activar relaciones y propuestas reales para tu negocio.
         </p>
         <div class="hero-actions">
-          <a onclick="return false;" href="https://pay.hotmart.com/K108524188D?checkoutMode=2" class="hotmart-fb hotmart__button-checkout btn">Quiero sumarme al desafío</a>
+          <a href="#inscripcion" class="btn">Quiero sumarme al desafío</a>
           <span class="hero-meta">Incluye 7 consignas diarias + Call grupal en vivo de cierre</span>
         </div>
       </div>
@@ -668,7 +682,7 @@
     </div>
   </section>
 
-  <!-- INSCRIPCIÓN Y PRECIO -->
+  <!-- INSCRIPCIÓN Y CHECKOUT DE HOTMART INCRUSTADO -->
   <section id="inscripcion" class="bg-marron">
     <div class="container">
       <div class="pricing-wrapper">
@@ -680,21 +694,30 @@
 
         <div class="price-row">
           <span class="price-main">USD 24</span>
-          <span class="price-sub">Equivalente aproximado: <strong>$1200 UYU</strong> · <strong>$45.000 ARS</strong> (Hotmart convierte automáticamente a tu moneda local)</span>
+          <span class="price-sub">Equivalente aproximado: <strong>$990 UYU</strong> · <strong>$25.000 ARS</strong> (Hotmart convierte automáticamente a tu moneda local)</span>
         </div>
 
         <div class="coupon-box">
           <p>
-            🎁 <strong>Beneficio por lanzamiento:</strong> Ingresá el cupón <strong>AMOR</strong> antes de pagar para obtener un <strong>20% de descuento</strong>.
+            🎁 <strong>Beneficio por lanzamiento:</strong> Ingresá el cupón <strong>AMOR</strong> abajo en "¿Tenés un cupón de descuento?" para obtener un <strong>20% OFF</strong>.
             <br><span style="font-size: 13px; opacity: 0.75;">Válido hasta el martes 17/11 a las 23:59 hs.</span>
           </p>
         </div>
 
-        <a onclick="return false;" href="https://pay.hotmart.com/K108524188D?checkoutMode=2" class="hotmart-fb hotmart__button-checkout btn" style="width: 100%; max-width: 420px; font-size: 16px !important; padding: 20px 36px !important;">
-          Reservar mi lugar ahora
-        </a>
-        <p style="font-size: 13px; margin-top: 16px; opacity: 0.7;">
-          Acceso inmediato a la plataforma y bienvenida tras confirmar tu inscripción.
+        <!-- Checkout de Hotmart incrustado directamente en la página -->
+        <div class="hotmart-embed-box">
+          <iframe src="https://pay.hotmart.com/K108524188D?checkoutMode=1" title="Checkout Hotmart · LA FIRMA" loading="lazy" allow="payment"></iframe>
+        </div>
+
+        <!-- Segundo botón directo por si prefieren abrirlo en pantalla completa -->
+        <div style="margin-top: 24px;">
+          <a href="https://pay.hotmart.com/K108524188D?bid=1794859071010" target="_blank" rel="noopener" class="btn">
+            Abrir checkout en pantalla completa
+          </a>
+        </div>
+
+        <p style="font-size: 14px; margin-top: 18px; opacity: 0.85;">
+          Al confirmar tu inscripción recibís tu correo de bienvenida y reservás tu lugar: <strong>comenzamos juntas el miércoles 3 de diciembre</strong>.
         </p>
       </div>
     </div>
@@ -732,6 +755,10 @@
 
       <div class="faq-list">
         <details>
+          <summary>¿Cuándo empieza y cómo accedo al material?</summary>
+          <p>El desafío se realiza del <strong>3 al 9 de diciembre</strong>. Apenas completás tu inscripción te llega el correo de confirmación con los datos de bienvenida, y el miércoles 3 de diciembre se habilita la primera consigna en la plataforma y en nuestro espacio grupal.</p>
+        </details>
+        <details>
           <summary>¿Necesito tener muchos seguidores o estar activa en Instagram?</summary>
           <p>No. Justamente el enfoque de LA FIRMA es integral y va más allá de Instagram o de cualquier algoritmo. Vas a trabajar tu posicionamiento, tu mensaje, tus activos propios y tus acciones comerciales para atraer oportunidades sin importar el tamaño de tu audiencia.</p>
         </details>
@@ -741,7 +768,7 @@
         </details>
         <details>
           <summary>¿Cómo aplico el cupón AMOR del 20% de descuento?</summary>
-          <p>Al hacer clic en el botón de inscripción se abrirá el checkout seguro de Hotmart aquí mismo. Allí vas a ver la opción "¿Tenés un cupón de descuento?", escribís <strong>AMOR</strong> y el 20% se descuenta automáticamente antes de finalizar el pago (disponible hasta el 17/11 a las 23:59 hs).</p>
+          <p>En el formulario de pago de arriba (o haciendo clic en el botón) vas a ver la opción "¿Tenés un cupón de descuento?". Escribís <strong>AMOR</strong> y el 20% se descuenta automáticamente antes de finalizar el pago (disponible hasta el 17/11 a las 23:59 hs).</p>
         </details>
         <details>
           <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
@@ -757,20 +784,7 @@
     <p style="margin-top: 6px;">felacuadra.com · Todos los derechos reservados</p>
   </footer>
 
-  <!-- Script del widget de checkout de Hotmart -->
-  <script type="text/javascript">
-    function importHotmart() {
-      var imported = document.createElement('script');
-      imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
-      document.head.appendChild(imported);
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
-      document.head.appendChild(link);
-    }
-    importHotmart();
-
+  <script>
     function copiarCupon(btn) {
       navigator.clipboard.writeText('AMOR').then(() => {
         const original = btn.textContent;
