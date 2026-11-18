@@ -190,15 +190,75 @@
   .hero-subtitle {
     font-size: 15px;
     font-weight: 700;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
     color: var(--magenta);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     display: block;
+    line-height: 1.45;
+  }
+
+  /* Countdown editorial */
+  .countdown-wrapper {
+    margin-top: 28px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(84, 48, 28, 0.14);
+    border-radius: 20px;
+    padding: 18px 24px;
+  }
+
+  .countdown-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--marron);
+    opacity: 0.75;
+  }
+
+  .countdown-grid {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .cd-box {
+    text-align: center;
+    min-width: 54px;
+  }
+
+  .cd-num {
+    display: block;
+    font-family: var(--serif);
+    font-size: 36px;
+    line-height: 1;
+    color: var(--magenta);
+  }
+
+  .cd-unit {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--marron);
+    opacity: 0.7;
+    margin-top: 4px;
+  }
+
+  .cd-sep {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--marron);
+    opacity: 0.35;
+    margin-top: -12px;
   }
 
   .hero-actions {
-    margin-top: 36px;
+    margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -534,10 +594,37 @@
       <div>
         <span class="kicker">Del 3 al 9 de Diciembre · Edición en vivo</span>
         <h1><em>LA FIRMA</em></h1>
-        <span class="hero-subtitle">Desafío de 7 días para atraer oportunidades con tu marca personal</span>
+        <span class="hero-subtitle">Desafío de 7 días para atraer oportunidades con tu marca personal siendo multifacética</span>
         <p class="lead">
-          Una experiencia integral —más allá de lo estético y de las redes sociales— para poner en marcha tu marca, construir tus activos propios y activar relaciones y propuestas reales para tu negocio.
+          Una experiencia profunda e integral —desde tu comunicación y branding hasta tus activos propios y ventas— para integrar tus facetas, sostener tu presencia con propósito y abrir las puertas de tu marca.
         </p>
+
+        <!-- Countdown hacia el 3 de diciembre -->
+        <div class="countdown-wrapper" aria-label="Cuenta regresiva para el inicio del desafío">
+          <span class="countdown-label">Comenzamos en:</span>
+          <div class="countdown-grid">
+            <div class="cd-box">
+              <span class="cd-num" id="cd-days">00</span>
+              <span class="cd-unit">Días</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box">
+              <span class="cd-num" id="cd-hours">00</span>
+              <span class="cd-unit">Horas</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box">
+              <span class="cd-num" id="cd-mins">00</span>
+              <span class="cd-unit">Min</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box">
+              <span class="cd-num" id="cd-secs">00</span>
+              <span class="cd-unit">Seg</span>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-actions">
           <a href="#inscripcion" class="btn">Quiero sumarme al desafío</a>
           <span class="hero-meta">Incluye 7 consignas diarias + Call grupal en vivo de cierre</span>
@@ -554,12 +641,12 @@
     <div class="container">
       <div class="manifesto-box">
         <span class="kicker">Por amor a tus creaciones</span>
-        <h2>Tener una marca linda con la puerta cerrada <em>no alcanza</em></h2>
+        <h2>Ser multifacética no es un problema a corregir, es <em>el corazón de tu firma</em></h2>
         <p>
-          Muchas emprendedoras multifacéticas viven atrapadas en el ciclo de publicar contenido suelto esperando que el algoritmo les traiga clientes. Cuando dejás de subir historias dos días, sentís que tu proyecto desaparece.
+          Muchas mujeres creativas y emprendedoras sienten que tienen que recortar partes de su identidad para encajar en un molde rígido, o terminan publicando piezas aisladas sin un hilo conductor que respalde el verdadero nivel de su trabajo.
         </p>
         <p>
-          <strong>LA FIRMA</strong> nace para cambiar esa lógica. Una marca personal con dirección no depende de una sola plataforma: vive en cómo te presentás, en la claridad de tu mensaje, en los activos que respaldan tu autoridad y en las conversaciones comerciales que sabés abrir.
+          <strong>LA FIRMA</strong> nace para integrar todas tus dimensiones en una arquitectura de marca sólida y viva. Trabajamos en cada punto de contacto —tu narrativa, tu presencia constante en redes, tu universo visual, tus activos propios y tus acciones comerciales— para que tu marca hable con claridad y atraiga oportunidades reales.
         </p>
       </div>
     </div>
@@ -571,24 +658,24 @@
       <div style="max-width: 680px;">
         <span class="kicker">Enfoque 360°</span>
         <h2>Qué vamos a activar juntas en <em>estos 7 días</em></h2>
-        <p class="lead">Trabajamos tu marca como un ecosistema completo donde estrategia, narrativa, branding y acción comercial avanzan en la misma dirección.</p>
+        <p class="lead">Trabajamos tu marca personal como un ecosistema completo donde identidad, comunicación, branding y ventas avanzan en la misma dirección.</p>
       </div>
 
       <div class="grid-3">
         <div class="card rosa">
-          <span class="card-tag">Eje 01 · Dirección</span>
-          <h3>Posicionamiento y mensaje claro</h3>
-          <p>Definí tu tesis diferencial y bajá en palabras simples qué hacés, por qué tu mirada es única y cómo presentar tu propuesta en cualquier espacio sin encasillarte.</p>
+          <span class="card-tag">Eje 01 · Identidad y Narrativa</span>
+          <h3>Posicionamiento multifacético</h3>
+          <p>Encontrá el hilo conductor que une tus intereses y bajá tu tesis de marca en un mensaje claro para presentarte con seguridad en cualquier mesa o espacio.</p>
         </div>
         <div class="card azul">
-          <span class="card-tag" style="color: var(--marron);">Eje 02 · Estructura</span>
-          <h3>Branding y activos propios</h3>
-          <p>Construí un universo coherente (visual, verbal y documental) y creá piezas madre evergreen que respalden tu autoridad y trabajen por vos más allá del feed.</p>
+          <span class="card-tag" style="color: var(--marron);">Eje 02 · Branding y Estructura</span>
+          <h3>Universo y activos propios</h3>
+          <p>Alineá tus códigos visuales y verbales en cada punto de contacto y creá piezas madre estratégicas que respalden tu autoridad y acompañen tu presencia en redes.</p>
         </div>
         <div class="card oliva">
-          <span class="card-tag" style="color: var(--marron);">Eje 03 · Movimiento</span>
-          <h3>Acción comercial y relaciones</h3>
-          <p>Salí de la burbuja pasiva: activá conversaciones estratégicas, propuestas de colaboración y una narrativa de venta natural para recibir oportunidades reales.</p>
+          <span class="card-tag" style="color: var(--marron);">Eje 03 · Atracción y Ventas</span>
+          <h3>Movimiento comercial con propósito</h3>
+          <p>Ordená tu comunicación para atraer personas afines, abrir conversaciones genuinas, proponer colaboraciones y presentar tus ofertas con convicción.</p>
         </div>
       </div>
     </div>
@@ -604,8 +691,8 @@
         <div class="day-item">
           <span class="day-num">Día 01</span>
           <div class="day-content">
-            <h4>Tu tesis y posicionamiento central</h4>
-            <p>Alineamos tu personalidad y filosofía con una propuesta clara para que puedas explicar el valor de tu trabajo en 30 segundos, en cualquier contexto.</p>
+            <h4>Tu tesis e hilo conductor multifacético</h4>
+            <p>Alineamos tu personalidad, tus distintas facetas y tu filosofía en una propuesta clara para que puedas explicar el valor de tu trabajo en 30 segundos, sin encasillarte.</p>
           </div>
         </div>
         <div class="day-item">
@@ -619,35 +706,35 @@
           <span class="day-num">Día 03</span>
           <div class="day-content">
             <h4>Universo y branding con intención</h4>
-            <p>Bajamos tus códigos visuales y verbales para que cada punto de contacto —un mail, una propuesta, un dossier o un perfil— respire tu misma atmósfera.</p>
+            <p>Bajamos tus códigos visuales y verbales para que cada punto de contacto —tu perfil, un mail, una propuesta o un dossier— respire tu misma atmósfera.</p>
           </div>
         </div>
         <div class="day-item">
           <span class="day-num">Día 04</span>
           <div class="day-content">
-            <h4>Activos de autoridad (más allá de las redes)</h4>
-            <p>Creamos una pieza madre estratégica (manifiesto, caso de estudio, dossier o recurso imán) que demuestre tu criterio y atraiga personas calificadas.</p>
+            <h4>Activos de autoridad y presencia estratégica</h4>
+            <p>Creamos una pieza madre (manifiesto, caso de estudio, dossier o recurso imán) que respalde tu criterio y potencie tu comunicación diaria.</p>
           </div>
         </div>
         <div class="day-item">
           <span class="day-num">Día 05</span>
           <div class="day-content">
-            <h4>Visibilidad estratégica y vínculos</h4>
-            <p>Acción concreta para salir a conversar con personas clave, proponer colaboraciones alineadas y posicionar tu nombre fuera de tu círculo habitual.</p>
+            <h4>Atracción y vínculos estratégicos</h4>
+            <p>Acción concreta para nutrir tu comunidad con propósito, abrir conversaciones con personas clave y proponer colaboraciones alineadas a tu visión.</p>
           </div>
         </div>
         <div class="day-item">
           <span class="day-num">Día 06</span>
           <div class="day-content">
-            <h4>Narrativa comercial sin fricción</h4>
-            <p>Cómo contar tus procesos, presentar tus servicios y hablar de tus ofertas desde el deseo y la seguridad, sin fórmulas invasivas.</p>
+            <h4>Narrativa comercial y ventas con propósito</h4>
+            <p>Cómo contar tus procesos, presentar tus servicios y hablar de tus ofertas desde el deseo, la estética y la seguridad, sin fórmulas invasivas.</p>
           </div>
         </div>
         <div class="day-item">
           <span class="day-num">Día 07</span>
           <div class="day-content">
             <h4>Tu hoja de ruta viva + Call grupal en vivo de cierre</h4>
-            <p>Ordenamos tu sistema sostenible para los próximos meses y nos encontramos en vivo para revisar avances, destrabar dudas y pulir tu plan juntas.</p>
+            <p>Ordenamos tu sistema sostenible de publicación y ventas para los próximos meses y nos encontramos en vivo el miércoles 9 de diciembre para revisar avances y pulir tu plan juntas.</p>
           </div>
         </div>
       </div>
@@ -662,10 +749,10 @@
           <span class="kicker">¿Es para vos?</span>
           <h2>Este desafío es tu lugar si...</h2>
           <ul class="star-list">
-            <li>Sos una mujer emprendedora, creativa o profesional independiente con múltiples facetas y te cuesta integrar todo bajo una misma identidad.</li>
-            <li>Sentís que tenés mucho talento y experiencia, pero tu comunicación actual no refleja el verdadero nivel de tu trabajo.</li>
-            <li>Querés dejar de medir tu negocio por los likes y empezar a generar conversaciones, alianzas y ventas reales.</li>
-            <li>Necesitás estructura, consignas accionables y acompañamiento cercano para pasar de las ideas a la ejecución en 7 días.</li>
+            <li>Sos una mujer emprendedora, creativa o profesional independiente multifacética y querés integrar tus distintas dimensiones bajo una misma firma.</li>
+            <li>Sentís que tenés mucho criterio y experiencia, pero tu comunicación y puntos de contacto todavía no reflejan el verdadero nivel de tu trabajo.</li>
+            <li>Querés sostener una presencia con propósito en redes y, al mismo tiempo, construir activos propios y acciones comerciales que generen ventas reales.</li>
+            <li>Buscás profundidad metodológica, consignas accionables y acompañamiento cercano para pasar de las ideas a la ejecución en 7 días.</li>
           </ul>
         </div>
         <div class="card" style="padding: 40px;">
@@ -673,9 +760,9 @@
           <h3>¿Cómo funciona por dentro?</h3>
           <ul class="star-list">
             <li><strong>Consignas diarias guiadas (3 al 9 de dic):</strong> Cada mañana recibís el audio y la guía práctica del día, pensada para aplicar en bloques cortos y concretos.</li>
-            <li><strong>Herramientas accionables:</strong> Plantillas de mensaje, estructuras de activos y ejercicios aplicables a todo tu ecosistema de marca.</li>
-            <li><strong>Espacio de intercambio:</strong> Comunidad privada durante los 7 días para compartir avances y recibir feedback.</li>
-            <li><strong>Call grupal en vivo de cierre:</strong> Encuentro en directo al finalizar el desafío para revisar tu hoja de ruta y resolver dudas en tiempo real.</li>
+            <li><strong>Herramientas accionables:</strong> Plantillas de mensaje, estructuras de activos y ejercicios aplicables a todos los puntos de contacto de tu marca.</li>
+            <li><strong>Espacio de intercambio:</strong> Comunidad privada en WhatsApp durante los 7 días para compartir avances y recibir feedback.</li>
+            <li><strong>Call grupal en vivo de cierre (9 de dic):</strong> Encuentro en directo el último día para revisar tu hoja de ruta y resolver dudas en tiempo real.</li>
           </ul>
         </div>
       </div>
@@ -688,8 +775,8 @@
       <div class="pricing-wrapper">
         <span class="kicker">Inscripciones abiertas · Cupos limitados</span>
         <h2>Sumate a <em>LA FIRMA</em></h2>
-        <p style="font-size: 17px; max-width: 560px; margin: 0 auto;">
-          7 días de acción integral para poner en marcha tu marca personal y activar oportunidades reales + Call grupal de cierre en vivo.
+        <p style="font-size: 17px; max-width: 580px; margin: 0 auto;">
+          7 días de desarrollo de marca profundo para atraer oportunidades siendo multifacética + Call grupal en vivo de cierre.
         </p>
 
         <div class="price-row">
@@ -717,7 +804,7 @@
         </div>
 
         <p style="font-size: 14px; margin-top: 18px; opacity: 0.85;">
-          Al confirmar tu inscripción recibís tu correo de bienvenida y reservás tu lugar: <strong>comenzamos juntas el miércoles 3 de diciembre</strong>.
+          Al confirmar tu inscripción accedés al grupo privado de WhatsApp y reservás tu lugar: <strong>comenzamos juntas el miércoles 3 de diciembre</strong>.
         </p>
       </div>
     </div>
@@ -732,13 +819,13 @@
           <span class="kicker">Quién te acompaña</span>
           <h2>Hola, soy <em>Fe Lacuadra</em></h2>
           <p class="lead" style="margin-bottom: 18px;">
-            Acompaño a mujeres emprendedoras y creativas a transformar ideas dispersas en marcas personales con dirección, identidad propia y propósito comercial.
+            Acompaño a mujeres emprendedoras y creativas multifacéticas a transformar ideas dispersas en marcas personales con dirección, identidad propia y propósito comercial.
           </p>
           <p style="font-size: 16px; margin-bottom: 18px; opacity: 0.9;">
-            Creo profundamente que una marca personal no se construye copiando fórmulas ni persiguiendo tendencias agotadoras, sino ordenando tu casa creativa desde adentro hacia afuera: personalidad, concepto y atmósfera al servicio de tus objetivos reales.
+            Creo profundamente que una marca personal no se construye copiando fórmulas ni recortando partes de quien sos, sino ordenando tu casa creativa desde adentro hacia afuera: personalidad, concepto y atmósfera al servicio de tus objetivos reales.
           </p>
           <p style="font-size: 16px; opacity: 0.9;">
-            En <strong>LA FIRMA</strong> reuní las acciones exactas que uso junto a mis clientas para que una marca deje de ser solo una cuenta bonita y se convierta en un imán de oportunidades.
+            En <strong>LA FIRMA</strong> reuní el recorrido completo que trabajo junto a mis clientas —comunicación, branding, activos propios y ventas— para que tu marca se habite con orgullo y atraiga oportunidades alineadas a tu visión.
           </p>
         </div>
       </div>
@@ -756,19 +843,19 @@
       <div class="faq-list">
         <details>
           <summary>¿Cuándo empieza y cómo accedo al material?</summary>
-          <p>El desafío se realiza del <strong>3 al 9 de diciembre</strong>. Apenas completás tu inscripción te llega el correo de confirmación con los datos de bienvenida, y el miércoles 3 de diciembre se habilita la primera consigna en la plataforma y en nuestro espacio grupal.</p>
+          <p>El desafío se realiza del <strong>3 al 9 de diciembre</strong>. Apenas completás tu inscripción accedés al grupo privado de WhatsApp y recibís tu correo de bienvenida. El 3 de diciembre habilitamos la primera consigna para empezar juntas.</p>
         </details>
         <details>
-          <summary>¿Necesito tener muchos seguidores o estar activa en Instagram?</summary>
-          <p>No. Justamente el enfoque de LA FIRMA es integral y va más allá de Instagram o de cualquier algoritmo. Vas a trabajar tu posicionamiento, tu mensaje, tus activos propios y tus acciones comerciales para atraer oportunidades sin importar el tamaño de tu audiencia.</p>
+          <summary>¿Sirve si siento que tengo demasiadas ideas o facetas distintas?</summary>
+          <p>Sí, está pensado especialmente para mujeres multifacéticas. En lugar de obligarte a elegir una sola caja, trabajamos para encontrar el hilo conductor que integra tus distintas facetas en un posicionamiento claro, coherente y atractivo comercialmente.</p>
         </details>
         <details>
-          <summary>¿Qué pasa si algún día entre el 3 y el 9 de diciembre no puedo conectarme?</summary>
-          <p>Todas las consignas y guías diarias quedan grabadas y disponibles en la plataforma para que las hagas a tu ritmo dentro de tu semana. Además, la call grupal en vivo de cierre también quedará grabada por si no podés asistir en directo.</p>
+          <summary>¿Qué pasa si algún día entre el 3 y el 9 de diciembre no puedo conectarme en el momento?</summary>
+          <p>Todas las consignas y guías diarias quedan disponibles para que las apliques a tu ritmo dentro de tu día. Además, la consultoría grupal en vivo de cierre del 9 de diciembre (cuyo horario coordinaremos juntas en el grupo) quedará grabada por si no podés sumarte en directo.</p>
         </details>
         <details>
           <summary>¿Cómo aplico el cupón AMOR del 10% de descuento?</summary>
-          <p>En el formulario de pago de arriba (o haciendo clic en el botón) vas a ver la opción "¿Tenés un cupón de descuento?". Escribís <strong>AMOR</strong> y el 10% se descuenta automáticamente antes de finalizar el pago (disponible hasta el 17/11 a las 23:59 hs).</p>
+          <p>En el formulario de pago de arriba (o haciendo clic en el botón) vas a ver la opción "¿Tenés un cupón de descuento?". Escribís <strong>AMOR</strong> y el 10% se descuenta automáticamente antes de finalizar el pago (disponible hasta el martes 24/11 a las 23:59 hs).</p>
         </details>
         <details>
           <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
@@ -780,7 +867,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><strong>Fe Lacuadra</strong> · LA FIRMA — Desafío de 7 días para atraer oportunidades con tu marca personal</p>
+    <p><strong>Fe Lacuadra</strong> · LA FIRMA — Desafío de 7 días para atraer oportunidades con tu marca personal siendo multifacética</p>
     <p style="margin-top: 6px;">felacuadra.com · Todos los derechos reservados</p>
   </footer>
 
@@ -794,6 +881,37 @@
         }, 2500);
       });
     }
+
+    // Countdown hacia el 3 de diciembre de 2026 a las 09:00 hs (UY/AR -03:00)
+    (function iniciarCountdown() {
+      const targetDate = new Date('2026-12-03T09:00:00-03:00').getTime();
+
+      function actualizar() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+        document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+      }
+
+      actualizar();
+      setInterval(actualizar, 1000);
+    })();
   </script>
 
 </body>
