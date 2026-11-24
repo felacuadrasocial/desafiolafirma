@@ -107,6 +107,54 @@
     color: var(--magenta);
   }
 
+  /* Cinta editorial (Marquee) */
+  .marquee-ribbon {
+    background-color: var(--marron);
+    color: var(--crema);
+    overflow: hidden;
+    padding: 14px 0;
+    border-top: 1px solid rgba(84, 48, 28, 0.15);
+    border-bottom: 1px solid rgba(84, 48, 28, 0.15);
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    animation: marqueeScroll 28s linear infinite;
+  }
+
+  .marquee-item {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .marquee-item em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    color: var(--rosa-claro);
+    font-weight: normal;
+  }
+
+  .marquee-star {
+    color: var(--magenta);
+    font-size: 12px;
+  }
+
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   /* Contenedores generales */
   .container {
     max-width: 1140px;
@@ -314,7 +362,7 @@
     margin-bottom: 20px;
   }
 
-  /* Grid de 3 pilares */
+  /* Grid de 3 pilares - COLORES SÓLIDOS REALES */
   .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -329,9 +377,23 @@
     padding: 36px 30px;
   }
 
-  .card.rosa { background-color: var(--rosa-claro); border: none; }
-  .card.azul { background-color: rgba(136, 173, 200, 0.25); border: none; }
-  .card.oliva { background-color: rgba(181, 185, 84, 0.25); border: none; }
+  .card.rosa {
+    background-color: var(--rosa-claro);
+    color: var(--marron);
+    border: none;
+  }
+
+  .card.azul {
+    background-color: var(--azul);
+    color: var(--marron);
+    border: none;
+  }
+
+  .card.oliva {
+    background-color: var(--oliva);
+    color: var(--marron);
+    border: none;
+  }
 
   .card-tag {
     font-size: 12px;
@@ -341,6 +403,11 @@
     color: var(--magenta);
     display: block;
     margin-bottom: 12px;
+  }
+
+  .card.azul .card-tag,
+  .card.oliva .card-tag {
+    color: var(--marron);
   }
 
   .card h3 {
@@ -551,16 +618,86 @@
     opacity: 0.9;
   }
 
-  footer {
-    text-align: center;
-    padding: 48px 24px;
-    font-size: 14px;
+  /* Pie de página estilo Consultoría */
+  .site-footer {
+    background-color: var(--marron);
+    color: var(--crema);
+    padding: 72px 0 36px;
+    margin-top: 60px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 0.9fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(250, 245, 237, 0.15);
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 38px;
+    color: var(--crema);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .footer-logo em {
+    color: var(--rosa-claro);
+    font-style: italic;
+  }
+
+  .footer-tagline {
+    font-size: 15px;
+    line-height: 1.65;
+    opacity: 0.85;
+    max-width: 360px;
+  }
+
+  .footer-heading {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rosa-claro);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    color: var(--crema);
+    text-decoration: none;
+    font-size: 15px;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+    color: var(--rosa-claro);
+  }
+
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
     opacity: 0.75;
-    border-top: 1px solid rgba(84, 48, 28, 0.1);
   }
 
   @media (max-width: 860px) {
-    .hero, .two-cols, .about-grid {
+    .hero, .two-cols, .about-grid, .footer-grid {
       grid-template-columns: 1fr;
       gap: 40px;
     }
@@ -580,6 +717,10 @@
     .hotmart-embed-box iframe {
       height: 860px;
     }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 </style>
 </head>
@@ -596,6 +737,14 @@
     <a href="#" class="logo">Fe <em>Lacuadra</em></a>
     <span class="nav-date">Del 3 al 9 de Diciembre</span>
   </header>
+
+  <!-- Cinta editorial -->
+  <div class="marquee-ribbon" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> ACTIVACIÓN DIARIA PARA COMUNICAR Y VENDER <span class="marquee-star">★</span> <em>Del 3 al 9 de Diciembre</em> <span class="marquee-star">★</span> MUJERES MULTIFACÉTICAS <span class="marquee-star">★</span></span>
+      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> ACTIVACIÓN DIARIA PARA COMUNICAR Y VENDER <span class="marquee-star">★</span> <em>Del 3 al 9 de Diciembre</em> <span class="marquee-star">★</span> MUJERES MULTIFACÉTICAS <span class="marquee-star">★</span></span>
+    </div>
+  </div>
 
   <!-- HERO -->
   <div class="container">
@@ -667,7 +816,7 @@
       <div style="max-width: 680px;">
         <span class="kicker">La lógica del desafío</span>
         <h2>Primero habitás tu identidad, <em>después salís a vender</em></h2>
-        <p class="lead">Sin teoría eterna ni documentos eternos: cada día desbloqueás una pieza y hacés una acción real hacia afuera.</p>
+        <p class="lead">Sin teoría eterna ni documentos pesados: cada día desbloqueás una pieza y hacés una acción real hacia afuera.</p>
       </div>
 
       <div class="grid-3">
@@ -677,12 +826,12 @@
           <p>Conectás con tu mirada única, el hilo que une tus facetas y tu forma natural de acompañar o crear, para dejar de compararte o recortarte.</p>
         </div>
         <div class="card azul">
-          <span class="card-tag" style="color: var(--marron);">Días 04 al 06 · Afuera</span>
+          <span class="card-tag">Días 04 al 06 · Afuera</span>
           <h3>Identidad comercial</h3>
           <p>Traducís quién sos en una promesa clara, ponés en palabras el valor de tus servicios y salís a abrir conversaciones de venta genuinas.</p>
         </div>
         <div class="card oliva">
-          <span class="card-tag" style="color: var(--marron);">Día 07 · En vivo</span>
+          <span class="card-tag">Día 07 · En vivo</span>
           <h3>Pulido y expansión</h3>
           <p>Nos encontramos en directo para afinar tu mensaje comercial en tiempo real y dejar encendida tu rutina de comunicación y ventas.</p>
         </div>
@@ -803,4 +952,159 @@
         <div class="coupon-box">
           <p>
             🎁 <strong>Beneficio por lanzamiento:</strong> Ingresá el cupón <strong>AMOR</strong> abajo en "¿Tenés un cupón de descuento?" para obtener un <strong>10% OFF</strong>.
-            <br><span style="font-size: 13px; opacity: 0.75;">Válido
+            <br><span style="font-size: 13px; opacity: 0.75;">Válido hasta el martes 24/11 a las 23:59 hs.</span>
+          </p>
+        </div>
+
+        <!-- Checkout de Hotmart incrustado directamente en la página -->
+        <div class="hotmart-embed-box">
+          <iframe src="https://pay.hotmart.com/K108524188D?checkoutMode=1" title="Checkout Hotmart · LA FIRMA" loading="lazy" allow="payment"></iframe>
+        </div>
+
+        <!-- Segundo botón directo por si prefieren abrirlo en pantalla completa -->
+        <div style="margin-top: 24px;">
+          <a href="https://pay.hotmart.com/K108524188D?bid=1794859071010" target="_blank" rel="noopener" class="btn">
+            Abrir checkout en pantalla completa
+          </a>
+        </div>
+
+        <p style="font-size: 14px; margin-top: 18px; opacity: 0.85;">
+          Al confirmar tu inscripción accedés al grupo privado de WhatsApp y reservás tu lugar: <strong>comenzamos juntas el miércoles 3 de diciembre</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE FE -->
+  <section>
+    <div class="container">
+      <div class="about-grid">
+        <img src="foto-sobre-mi.jpg" alt="Fe Lacuadra">
+        <div>
+          <span class="kicker">Quién te acompaña</span>
+          <h2>Hola, soy <em>Fe Lacuadra</em></h2>
+          <p class="lead" style="margin-bottom: 18px;">
+            Acompaño a mujeres emprendedoras y creativas multifacéticas a ordenar su identidad y salir a comunicar y vender sus servicios con verdad y dirección.
+          </p>
+          <p style="font-size: 16px; margin-bottom: 18px; opacity: 0.9;">
+            Creo profundamente que vender no es ponerse una máscara comercial, sino animarse a habitar quién sos y traducirlo en palabras claras para que las personas correctas te elijan.
+          </p>
+          <p style="font-size: 16px; opacity: 0.9;">
+            En <strong>LA FIRMA</strong> diseñé 7 días de activación simple y profunda —de adentro hacia afuera— para que dejes de postergar tu voz y pongas en movimiento tus ventas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="kicker">Dudas habituales</span>
+        <h2>Preguntas <em>frecuentes</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>¿Cuándo empieza y cuánto tiempo me lleva por día?</summary>
+          <p>El desafío se realiza del <strong>3 al 9 de diciembre</strong>. Está pensado para que no te abrume: cada mañana recibís un audio breve y una activación puntual que podés resolver y aplicar en 20 a 30 minutos dentro de tu día.</p>
+        </details>
+        <details>
+          <summary>¿Sirve si tengo varios servicios o siento que todavía no tengo todo definido?</summary>
+          <p>Sí, justamente por eso empezamos por tu identidad personal antes de pasar a lo comercial. No necesitás tener un catálogo perfecto para empezar: en el desafío elegimos un foco claro y salís a comunicarlo en movimiento.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si algún día entre el 3 y el 9 de diciembre no puedo hacer la acción en el momento?</summary>
+          <p>Todos los audios y consignas quedan guardados en el grupo para que los apliques a tu ritmo. Además, la call grupal en vivo de cierre del 9 de diciembre quedará grabada por si no podés conectarte en directo.</p>
+        </details>
+        <details>
+          <summary>¿Cómo aplico el cupón AMOR del 10% de descuento?</summary>
+          <p>En el formulario de pago de arriba (o haciendo clic en el botón) vas a ver la opción "¿Tenés un cupón de descuento?". Escribís <strong>AMOR</strong> y el 10% se descuenta automáticamente antes de finalizar el pago (disponible hasta el martes 24/11 a las 23:59 hs).</p>
+        </details>
+        <details>
+          <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
+          <p>Sí. Hotmart detecta tu país automáticamente y te muestra el valor equivalente en tu moneda local (UYU, ARS, USD, EUR, etc.) permitiendo abonar con tarjeta de crédito, débito o medios locales habilitados.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="footer-logo">Fe <em>Lacuadra</em></a>
+          <p class="footer-tagline">
+            Estrategia, identidad y dirección creativa para mujeres emprendedoras y multifacéticas que eligen comunicar y vender desde adentro hacia afuera.
+          </p>
+        </div>
+        <div>
+          <span class="footer-heading">Navegación</span>
+          <ul class="footer-links">
+            <li><a href="#inscripcion">Sumarme a LA FIRMA</a></li>
+            <li><a href="https://felacuadra.com" target="_blank" rel="noopener">Consultoría &amp; Programas</a></li>
+            <li><a href="https://felacuadra.com" target="_blank" rel="noopener">Inicio · felacuadra.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-heading">Conectemos</span>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com/fe.lacuadra" target="_blank" rel="noopener">Instagram · @fe.lacuadra</a></li>
+            <li><a href="mailto:hola@felacuadra.com">hola@felacuadra.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Fe Lacuadra · Todos los derechos reservados.</span>
+        <span>Por amor a tus creaciones ★</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copiarCupon(btn) {
+      navigator.clipboard.writeText('AMOR').then(() => {
+        const original = btn.textContent;
+        btn.textContent = '¡Cupón AMOR copiado!';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 2500);
+      });
+    }
+
+    // Countdown hacia el 3 de diciembre de 2026 a las 09:00 hs (UY/AR -03:00)
+    (function iniciarCountdown() {
+      const targetDate = new Date('2026-12-03T09:00:00-03:00').getTime();
+
+      function actualizar() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+        document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+      }
+
+      actualizar();
+      setInterval(actualizar, 1000);
+    })();
+  </script>
+
+</body>
+</html>
