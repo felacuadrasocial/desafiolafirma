@@ -821,4 +821,98 @@
           <p class="lead" style="margin-bottom: 18px;">
             Acompaño a mujeres emprendedoras y creativas multifacéticas a transformar ideas dispersas en ofertas claras, con identidad propia y resultados comerciales reales.
           </p>
-          <p style="font-
+          <p style="font-size: 16px; margin-bottom: 18px; opacity: 0.9;">
+            Creo profundamente que vender no requiere encasillarte ni copiar fórmulas rígidas, sino ordenar lo que hacés desde adentro hacia afuera: entender tu hilo conductor, darle forma a tu metodología y encontrar tus propias palabras para ofrecerlo.
+          </p>
+          <p style="font-size: 16px; opacity: 0.9;">
+            En <strong>LA FIRMA</strong> condensé el paso a paso exacto que trabajo con mis clientas para destrabar su comunicación y sus ventas en 7 días accionables, sin vueltas innecesarias.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="kicker">Dudas habituales</span>
+        <h2>Preguntas <em>frecuentes</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>¿Cuándo empieza y cómo accedo al material?</summary>
+          <p>El desafío se realiza del <strong>3 al 9 de diciembre</strong>. Apenas completás tu inscripción accedés al grupo privado de WhatsApp y recibís tu correo de bienvenida. El 3 de diciembre habilitamos la primera consigna para empezar juntas.</p>
+        </details>
+        <details>
+          <summary>¿Sirve si tengo varios servicios o ideas y no sé cómo unirlos?</summary>
+          <p>Sí, está diseñado exactamente para eso. En lugar de obligarte a elegir una sola caja, trabajamos para encontrar el hilo conductor que integra tus distintas facetas en una oferta y una promesa claras, fáciles de entender y de vender.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si algún día entre el 3 y el 9 de diciembre no puedo conectarme en el momento?</summary>
+          <p>Todas las consignas, audios y plantillas diarias quedan disponibles para que las apliques a tu ritmo dentro de tu día. Además, la call grupal en vivo de cierre del 9 de diciembre (cuyo horario coordinaremos juntas en el grupo) quedará grabada por si no podés sumarte en directo.</p>
+        </details>
+        <details>
+          <summary>¿Cómo aplico el cupón AMOR del 10% de descuento?</summary>
+          <p>En el formulario de pago de arriba (o haciendo clic en el botón) vas a ver la opción "¿Tenés un cupón de descuento?". Escribís <strong>AMOR</strong> y el 10% se descuenta automáticamente antes de finalizar el pago (disponible hasta el martes 24/11 a las 23:59 hs).</p>
+        </details>
+        <details>
+          <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
+          <p>Sí. Hotmart detecta tu país automáticamente y te muestra el valor equivalente en tu moneda local (UYU, ARS, USD, EUR, etc.) permitiendo abonar con tarjeta de crédito, débito o medios locales habilitados.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Fe Lacuadra</strong> · LA FIRMA — Desafío de 7 días para comunicar y vender tus servicios siendo multifacética</p>
+    <p style="margin-top: 6px;">felacuadra.com · Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    function copiarCupon(btn) {
+      navigator.clipboard.writeText('AMOR').then(() => {
+        const original = btn.textContent;
+        btn.textContent = '¡Cupón AMOR copiado!';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 2500);
+      });
+    }
+
+    // Countdown hacia el 3 de diciembre de 2026 a las 09:00 hs (UY/AR -03:00)
+    (function iniciarCountdown() {
+      const targetDate = new Date('2026-12-03T09:00:00-03:00').getTime();
+
+      function actualizar() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+        document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+      }
+
+      actualizar();
+      setInterval(actualizar, 1000);
+    })();
+  </script>
+
+</body>
+</html>
