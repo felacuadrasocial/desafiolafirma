@@ -37,84 +37,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Barra superior de lanzamiento */
-  .top-banner {
-    background-color: var(--marron);
-    color: var(--crema);
-    text-align: center;
-    padding: 12px 20px;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .top-banner strong {
-    color: var(--rosa-claro);
-    letter-spacing: 1px;
-  }
-
-  .copy-badge {
-    display: inline-block;
-    background-color: var(--magenta);
-    color: var(--crema);
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-left: 8px;
-    cursor: pointer;
-    border: none;
-    transition: transform 0.2s, opacity 0.2s;
-  }
-
-  .copy-badge:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
-  }
-
-  /* Navegación minimalista */
-  header.nav {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 28px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-family: var(--serif);
-    font-size: 32px;
-    color: var(--marron);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
-
-  .logo em {
-    color: var(--magenta);
-    font-style: italic;
-  }
-
-  .nav-date {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--magenta);
-  }
-
   /* Cinta editorial (Marquee) */
   .marquee-ribbon {
     background-color: var(--marron);
     color: var(--crema);
     overflow: hidden;
-    padding: 14px 0;
-    border-top: 1px solid rgba(84, 48, 28, 0.15);
-    border-bottom: 1px solid rgba(84, 48, 28, 0.15);
+    padding: 13px 0;
     white-space: nowrap;
   }
 
@@ -153,6 +81,37 @@
   @keyframes marqueeScroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+
+  /* Navegación minimalista */
+  header.nav {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--marron);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+
+  .logo em {
+    color: var(--magenta);
+    font-style: italic;
+  }
+
+  .nav-date {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--magenta);
   }
 
   /* Contenedores generales */
@@ -228,7 +187,7 @@
 
   /* HERO */
   .hero {
-    padding: 40px 0 96px;
+    padding: 32px 0 96px;
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 64px;
@@ -530,18 +489,6 @@
     opacity: 0.85;
   }
 
-  .coupon-box {
-    border: 1.5px dashed var(--magenta);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 28px;
-    background-color: #FFFFFF;
-  }
-
-  .coupon-box p {
-    font-size: 15px;
-  }
-
   /* Contenedor del iframe de Hotmart */
   .hotmart-embed-box {
     width: 100%;
@@ -618,12 +565,26 @@
     opacity: 0.9;
   }
 
+  /* Cinta inferior antes del footer */
+  .marquee-ribbon.bottom-ribbon {
+    background-color: var(--magenta);
+    color: var(--crema);
+    margin-top: 60px;
+  }
+
+  .marquee-ribbon.bottom-ribbon .marquee-star {
+    color: var(--marron);
+  }
+
+  .marquee-ribbon.bottom-ribbon .marquee-item em {
+    color: var(--crema);
+  }
+
   /* Pie de página estilo Consultoría */
   .site-footer {
     background-color: var(--marron);
     color: var(--crema);
     padding: 72px 0 36px;
-    margin-top: 60px;
   }
 
   .footer-grid {
@@ -726,10 +687,12 @@
 </head>
 <body>
 
-  <!-- Barra superior de cupón -->
-  <div class="top-banner">
-    Beneficio lanzamiento: <strong>10% OFF</strong> con el cupón <strong>AMOR</strong> hasta el 24/11 a las 23:59 hs
-    <button class="copy-badge" onclick="copiarCupon(this)">Copiar cupón</button>
+  <!-- Cinta editorial superior -->
+  <div class="marquee-ribbon" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> ACTIVACIÓN DIARIA PARA COMUNICAR Y VENDER <span class="marquee-star">★</span> <em>Del 3 al 9 de Diciembre</em> <span class="marquee-star">★</span> MUJERES MULTIFACÉTICAS <span class="marquee-star">★</span></span>
+      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> ACTIVACIÓN DIARIA PARA COMUNICAR Y VENDER <span class="marquee-star">★</span> <em>Del 3 al 9 de Diciembre</em> <span class="marquee-star">★</span> MUJERES MULTIFACÉTICAS <span class="marquee-star">★</span></span>
+    </div>
   </div>
 
   <!-- Header -->
@@ -737,14 +700,6 @@
     <a href="#" class="logo">Fe <em>Lacuadra</em></a>
     <span class="nav-date">Del 3 al 9 de Diciembre</span>
   </header>
-
-  <!-- Cinta editorial -->
-  <div class="marquee-ribbon" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> ACTIVACIÓN DIARIA PARA COMUNICAR Y VENDER <span class="marquee-star">★</span> <em>Del 3 al 9 de Diciembre</em> <span class="marquee-star">★</span> MUJERES MULTIFACÉTICAS <span class="marquee-star">★</span></span>
-      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> ACTIVACIÓN DIARIA PARA COMUNICAR Y VENDER <span class="marquee-star">★</span> <em>Del 3 al 9 de Diciembre</em> <span class="marquee-star">★</span> MUJERES MULTIFACÉTICAS <span class="marquee-star">★</span></span>
-    </div>
-  </div>
 
   <!-- HERO -->
   <div class="container">
@@ -949,13 +904,6 @@
           <span class="price-sub">Equivalente aproximado: <strong>$1000 UYU</strong> · <strong>$45.000 ARS</strong> (Hotmart convierte automáticamente a tu moneda local)</span>
         </div>
 
-        <div class="coupon-box">
-          <p>
-            🎁 <strong>Beneficio por lanzamiento:</strong> Ingresá el cupón <strong>AMOR</strong> abajo en "¿Tenés un cupón de descuento?" para obtener un <strong>10% OFF</strong>.
-            <br><span style="font-size: 13px; opacity: 0.75;">Válido hasta el martes 24/11 a las 23:59 hs.</span>
-          </p>
-        </div>
-
         <!-- Checkout de Hotmart incrustado directamente en la página -->
         <div class="hotmart-embed-box">
           <iframe src="https://pay.hotmart.com/K108524188D?checkoutMode=1" title="Checkout Hotmart · LA FIRMA" loading="lazy" allow="payment"></iframe>
@@ -1019,16 +967,20 @@
           <p>Todos los audios y consignas quedan guardados en el grupo para que los apliques a tu ritmo. Además, la call grupal en vivo de cierre del 9 de diciembre quedará grabada por si no podés conectarte en directo.</p>
         </details>
         <details>
-          <summary>¿Cómo aplico el cupón AMOR del 10% de descuento?</summary>
-          <p>En el formulario de pago de arriba (o haciendo clic en el botón) vas a ver la opción "¿Tenés un cupón de descuento?". Escribís <strong>AMOR</strong> y el 10% se descuenta automáticamente antes de finalizar el pago (disponible hasta el martes 24/11 a las 23:59 hs).</p>
-        </details>
-        <details>
           <summary>¿Puedo pagar en pesos uruguayos, pesos argentinos o desde otro país?</summary>
           <p>Sí. Hotmart detecta tu país automáticamente y te muestra el valor equivalente en tu moneda local (UYU, ARS, USD, EUR, etc.) permitiendo abonar con tarjeta de crédito, débito o medios locales habilitados.</p>
         </details>
       </div>
     </div>
   </section>
+
+  <!-- Cinta editorial inferior -->
+  <div class="marquee-ribbon bottom-ribbon" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>Por amor a tus creaciones</em> <span class="marquee-star">★</span> DEL 3 AL 9 DE DICIEMBRE <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> SUMATE HOY <span class="marquee-star">★</span></span>
+      <span class="marquee-item">LA FIRMA <span class="marquee-star">★</span> <em>Por amor a tus creaciones</em> <span class="marquee-star">★</span> DEL 3 AL 9 DE DICIEMBRE <span class="marquee-star">★</span> <em>De adentro hacia afuera</em> <span class="marquee-star">★</span> SUMATE HOY <span class="marquee-star">★</span></span>
+    </div>
+  </div>
 
   <!-- PIE DE PÁGINA -->
   <footer class="site-footer">
@@ -1051,7 +1003,7 @@
         <div>
           <span class="footer-heading">Conectemos</span>
           <ul class="footer-links">
-            <li><a href="https://instagram.com/fe.lacuadra" target="_blank" rel="noopener">Instagram · @fe.lacuadra</a></li>
+            <li><a href="https://instagram.com/felacuadra" target="_blank" rel="noopener">Instagram · @felacuadra</a></li>
             <li><a href="mailto:hola@felacuadra.com">hola@felacuadra.com</a></li>
           </ul>
         </div>
@@ -1064,16 +1016,6 @@
   </footer>
 
   <script>
-    function copiarCupon(btn) {
-      navigator.clipboard.writeText('AMOR').then(() => {
-        const original = btn.textContent;
-        btn.textContent = '¡Cupón AMOR copiado!';
-        setTimeout(() => {
-          btn.textContent = original;
-        }, 2500);
-      });
-    }
-
     // Countdown hacia el 3 de diciembre de 2026 a las 09:00 hs (UY/AR -03:00)
     (function iniciarCountdown() {
       const targetDate = new Date('2026-12-03T09:00:00-03:00').getTime();
